@@ -1,4 +1,4 @@
-#!usr/bin/python 
+#!usr/bin/python 2.7
 import urllib 
 import urllib2 
 import ftplib 
@@ -101,4 +101,4 @@ while True:
       pass 
     pass  
   pass 
-print ms 
+print"Pass Can't Founde" 
